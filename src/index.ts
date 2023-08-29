@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import picture from './assets/image.jpg';
 
 class Example extends Phaser.Scene {
     angle = 0;
@@ -6,6 +7,10 @@ class Example extends Phaser.Scene {
     point2!: Phaser.Math.Vector2;
     point!: Phaser.Math.Vector2;
     graphics!: Phaser.GameObjects.Graphics;
+
+    preload() {
+        this.load.image('picture', picture);
+    }
 
     create ()
     {
@@ -23,6 +28,8 @@ class Example extends Phaser.Scene {
             this.point2.x -= 400;
             this.point2.y -= 300;
         });
+
+        this.add.sprite(400, 300, 'picture').setScale(0.3);
     }
 
     update ()
